@@ -8,11 +8,11 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Billionets Brand Colors - Updated to black primary, white text */
+    /* Billionets Brand Colors - Exact HSL conversions */
     --base-white: 0 0% 100%;
     --surface: 0 0% 92%;
-    --accent-gold: 0 0% 0%;
-    --ink: 0 0% 100%;
+    --accent-gold: 48 62% 61%;
+    --ink: 0 0% 0%;
     
     /* Semantic tokens mapped to brand */
     --background: var(--base-white);
