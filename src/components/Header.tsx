@@ -18,6 +18,8 @@ export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
+  const isOnDarkHero = location.pathname === "/" && !isScrolled;
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -42,7 +44,7 @@ export const Header = () => {
           {/* Logo */}
           <div className="flex lg:flex-1">
             <Link to="/" className="flex items-center gap-2 -m-1.5 p-1.5">
-              <span className="text-2xl font-bold text-ink">
+              <span className={cn("text-2xl font-bold", isOnDarkHero ? "text-base-white" : "text-ink")}>
                 Billionets<span className="text-accent-gold">.</span>
               </span>
             </Link>
@@ -52,7 +54,10 @@ export const Header = () => {
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-md p-2.5 text-ink"
+              className={cn(
+                "inline-flex items-center justify-center rounded-md p-2.5",
+                isOnDarkHero ? "text-base-white" : "text-ink"
+              )}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
@@ -75,7 +80,9 @@ export const Header = () => {
                   "text-sm font-semibold leading-6 transition-all duration-base relative group",
                   location.pathname === item.href
                     ? "text-accent-gold"
-                    : "text-ink hover:text-accent-gold"
+                    : isOnDarkHero
+                      ? "text-base-white hover:text-accent-gold"
+                      : "text-ink hover:text-accent-gold"
                 )}
               >
                 {item.name}
@@ -91,7 +98,12 @@ export const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Button3D variant="primary" size="sm" asChild>
+            <Button3D
+              variant="primary"
+              size="sm"
+              className={isOnDarkHero ? "text-base-white" : undefined}
+              asChild
+            >
               <Link to="/contact">Start Your Project</Link>
             </Button3D>
           </div>

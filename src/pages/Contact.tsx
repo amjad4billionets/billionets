@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { StructuredData } from "@/components/StructuredData";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -18,6 +19,9 @@ export default function Contact() {
     projectType: "",
     message: "",
   });
+
+  const fieldClasses =
+    "bg-background/80 border-border/60 shadow-md transform transition-all duration-medium focus:-translate-y-[2px] focus:shadow-gold focus-visible:ring-accent-gold";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -126,9 +130,16 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <Card className="p-8 border border-border">
-                <h2 className="text-2xl font-bold text-ink mb-6">Send Us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+              <AnimatedSection direction="up">
+                <div className="relative group">
+                  <div className="pointer-events-none absolute -inset-px rounded-3xl bg-gradient-to-tr from-accent-gold/60 via-accent-gold/10 to-transparent opacity-60 group-hover:opacity-100 blur-xl transition-all duration-slow" />
+                  <div className="pointer-events-none absolute -top-32 -right-16 h-56 w-56 rounded-full bg-accent-gold/10 blur-3xl" />
+                  <Card className="relative p-8 lg:p-10 rounded-3xl border border-border/60 bg-background/90 backdrop-blur-xl shadow-gold transition-all duration-medium transform group-hover:-translate-y-1 group-hover:shadow-lg group-hover:scale-[1.01]">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-ink mb-2">Send Us a Message</h2>
+                    <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-xl">
+                      Share a few details about your project and our team will get back to you within one business day.
+                    </p>
+                    <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="name">
@@ -140,6 +151,7 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Your name"
+                        className={fieldClasses}
                         required
                         aria-required="true"
                       />
@@ -155,6 +167,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="your@email.com"
+                        className={fieldClasses}
                         required
                         aria-required="true"
                       />
@@ -171,6 +184,7 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+971 50 123 4567"
+                        className={fieldClasses}
                       />
                     </div>
                     <div className="space-y-2">
@@ -181,6 +195,7 @@ export default function Contact() {
                         value={formData.company}
                         onChange={handleChange}
                         placeholder="Your company name"
+                        className={fieldClasses}
                       />
                     </div>
                   </div>
@@ -193,7 +208,7 @@ export default function Contact() {
                         setFormData({ ...formData, projectType: value })
                       }
                     >
-                      <SelectTrigger id="projectType">
+                      <SelectTrigger id="projectType" className={fieldClasses}>
                         <SelectValue placeholder="Select project type" />
                       </SelectTrigger>
                       <SelectContent>
@@ -218,6 +233,7 @@ export default function Contact() {
                       onChange={handleChange}
                       placeholder="Tell us about your project..."
                       rows={6}
+                      className={fieldClasses}
                       required
                       aria-required="true"
                     />
@@ -227,8 +243,10 @@ export default function Contact() {
                     <Send className="mr-2 h-5 w-5" />
                     Send Message
                   </Button3D>
-                </form>
-              </Card>
+                    </form>
+                  </Card>
+                </div>
+              </AnimatedSection>
             </div>
           </div>
         </div>
@@ -240,16 +258,17 @@ export default function Contact() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-ink mb-4">Find Us</h2>
             <p className="text-lg text-muted-foreground">
-              Located in the heart of Dubai's business district
+              2606, Regal Tower, Business Bay, Dubai, UAE
             </p>
           </div>
-          <div className="aspect-video bg-muted rounded-lg overflow-hidden border border-border">
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="h-12 w-12 text-accent-gold mx-auto mb-4" />
-                <p className="text-muted-foreground">Dubai, UAE</p>
-              </div>
-            </div>
+          <div className="aspect-video bg-muted rounded-lg overflow-hidden border border-border shadow-md">
+            <iframe
+              title="Billionets Office Location"
+              src="https://www.google.com/maps?q=2606,+Regal+Tower,+Business+Bay,+Dubai,+UAE&output=embed"
+              className="w-full h-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </section>

@@ -11,7 +11,7 @@ All colors MUST be HSL.
     /* Billionets Brand Colors - Gold, Black, White Only */
     /* OPTION 1: White Background (commented out - uncomment to switch back) */
     --base-white: 0 0% 100%;
-    --surface: 0 0% 100%;
+    --surface: 0 0% 98%;
     --accent-gold: 48 62% 61%;
     --ink: 0 0% 0%;
     --background: var(--base-white);
@@ -24,7 +24,7 @@ All colors MUST be HSL.
     --primary-foreground: var(--ink);
     --secondary: var(--base-white);
     --secondary-foreground: var(--ink);
-    --muted: var(--base-white);
+    --muted: var(--surface);
     --muted-foreground: 0 0% 0%;
     --accent: var(--accent-gold);
     --accent-foreground: var(--ink);
