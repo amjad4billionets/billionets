@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PageTransition } from "@/components/PageTransition";
+import { ChatWidget } from "@/components/ChatWidget";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -39,6 +40,7 @@ const App = () => (
               </Routes>
             </PageTransition>
             <Footer />
+            <ChatWidget />
           </div>
         </BrowserRouter>
       </TooltipProvider>
