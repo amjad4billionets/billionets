@@ -90,7 +90,7 @@ All colors MUST be HSL.
     --duration-quick: 120ms;
     --duration-base: 250ms;
     --duration-medium: 420ms;
-    --duration-slow: 700ms;
+    --duration-slow: 500ms;
     --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
@@ -193,9 +193,29 @@ All colors MUST be HSL.
   }
   
   .glass {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background:
+      linear-gradient(
+        135deg,
+        hsl(var(--base-white) / 0.16),
+        hsl(var(--base-white) / 0.04)
+      );
+    border: 1px solid hsl(var(--base-white) / 0.45);
+    box-shadow: 0 18px 45px hsla(0, 0%, 0%, 0.18);
+    backdrop-filter: blur(22px) saturate(1.8);
+    -webkit-backdrop-filter: blur(22px) saturate(1.8);
+  }
+  
+  .glass-dark {
+    background:
+      linear-gradient(
+        135deg,
+        hsla(0, 0%, 0%, 0.85),
+        hsla(0, 0%, 0%, 0.7)
+      );
+    border: 1px solid hsl(var(--base-white) / 0.22);
+    box-shadow: 0 22px 55px hsla(0, 0%, 0%, 0.55);
+    backdrop-filter: blur(22px) saturate(1.8);
+    -webkit-backdrop-filter: blur(22px) saturate(1.8);
   }
   
   .smooth-scroll {

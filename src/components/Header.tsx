@@ -32,11 +32,25 @@ export const Header = () => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-medium",
-        isScrolled ? "glass shadow-md" : "bg-transparent"
+        // Mobile: always solid background
+        // Desktop: transparent on hero, glass-dark on scroll/other pages
+        "fixed top-0 w-full z-50 transition-all duration-medium bg-black",
+        isOnDarkHero ? "lg:bg-transparent" : "lg:glass-dark lg:shadow-md"
       )}
     >
       <nav className="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Main navigation">
@@ -44,7 +58,17 @@ export const Header = () => {
           {/* Logo */}
           <div className="flex lg:flex-1">
             <Link to="/" className="flex items-center gap-2 -m-1.5 p-1.5">
-              <span className={cn("text-2xl font-bold", isOnDarkHero ? "text-base-white" : "text-ink")}>
+              <img
+                src="/logo - billionets.png"
+                alt="Billionets logo"
+                className="h-8 w-auto"
+              />
+              <span
+                className={cn(
+                  "text-2xl font-bold",
+                  "text-base-white"
+                )}
+              >
                 Billionets<span className="text-accent-gold">.</span>
               </span>
             </Link>
@@ -56,7 +80,7 @@ export const Header = () => {
               type="button"
               className={cn(
                 "inline-flex items-center justify-center rounded-md p-2.5",
-                isOnDarkHero ? "text-base-white" : "text-ink"
+                isOnDarkHero ? "text-base-white" : "text-base-white"
               )}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
@@ -80,9 +104,7 @@ export const Header = () => {
                   "text-sm font-semibold leading-6 transition-all duration-base relative group",
                   location.pathname === item.href
                     ? "text-accent-gold"
-                    : isOnDarkHero
-                      ? "text-base-white hover:text-accent-gold"
-                      : "text-ink hover:text-accent-gold"
+                    : "text-base-white hover:text-accent-gold"
                 )}
               >
                 {item.name}
@@ -112,7 +134,7 @@ export const Header = () => {
         {/* Mobile menu */}
         <div
           className={cn(
-            "lg:hidden fixed inset-0 top-20 bg-background transition-all duration-medium ease-smooth",
+            "lg:hidden fixed inset-0 top-20 z-40 bg-white transition-all duration-medium ease-smooth",
             mobileMenuOpen
               ? "opacity-100 visible translate-y-0"
               : "opacity-0 invisible -translate-y-4 pointer-events-none"
