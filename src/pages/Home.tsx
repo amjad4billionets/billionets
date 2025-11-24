@@ -62,7 +62,7 @@ export default function Home() {
       <StructuredData type="home" />
       <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-ink text-base-white">
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-ink text-base-white hero-parallax">
         <video
           className="absolute inset-0 h-full w-full object-cover"
           src="/intro.mp4"
@@ -95,7 +95,10 @@ export default function Home() {
                   className="text-base-white w-full sm:w-auto"
                   asChild
                 >
-                  <Link to="/contact">
+                  <Link
+                    to="/contact"
+                    className="link-reveal inline-flex items-center gap-2 whitespace-nowrap"
+                  >
                     Start Your Project <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button3D>
@@ -105,7 +108,12 @@ export default function Home() {
                   className="border-base-white text-base-white hover:bg-base-white/10 w-full sm:w-auto"
                   asChild
                 >
-                  <Link to="/services">Explore Services</Link>
+                  <Link
+                    to="/services"
+                    className="link-reveal inline-flex items-center gap-1"
+                  >
+                    Explore Services
+                  </Link>
                 </Button3D>
               </div>
             </div>
@@ -113,7 +121,7 @@ export default function Home() {
             {/* Supporting copy / stats */}
             <AnimatedSection
               direction="up"
-              className="lg:col-span-5 mt-10 lg:mt-0 space-y-6 text-base-white/70 text-center sm:text-left"
+              className="lg:col-span-5 mt-10 lg:mt-16 space-y-6 text-base-white/70 text-center sm:text-left"
             >
               <p className="text-sm sm:text-base leading-relaxed max-w-md mx-auto lg:mx-0">
                 In a world where businesses exist to solve human problems, we exist to solve the
@@ -144,9 +152,12 @@ export default function Home() {
                 <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-base-white/30">
                   <ArrowRight className="h-4 w-4" />
                 </span>
-                <span>
+                <Link
+                  to="/about"
+                  className="link-reveal text-sm text-base-white/80"
+                >
                   Read more about how we help teams ship smarter, faster, and with less risk.
-                </span>
+                </Link>
               </div>
             </AnimatedSection>
           </div>
@@ -188,9 +199,18 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {whyBillionets.map((item, index) => (
               <AnimatedSection key={item.title} delay={index} direction="up">
-                <Card className="p-8 hover-lift cursor-pointer border border-border">
-                  <div className="mb-6 inline-flex p-4 bg-surface rounded-lg">
-                    <item.icon className="h-8 w-8 text-accent-gold" />
+                <Card
+                  className="card tilt p-8 hover-lift cursor-pointer border border-border"
+                  data-tilt-strength="10"
+                >
+                  <div
+                    className="mb-6 reveal-wrap inline-block rounded-lg"
+                    data-reveal-duration="0.7"
+                  >
+                    <div className="reveal-overlay" />
+                    <div className="reveal-img inline-flex p-4 bg-surface rounded-lg">
+                      <item.icon className="h-8 w-8 text-accent-gold" />
+                    </div>
                   </div>
                   <h3 className="text-xl font-bold text-ink mb-3">{item.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{item.description}</p>
@@ -232,7 +252,10 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <AnimatedSection key={index} delay={index} direction="up">
-                <Card className="p-8 hover-lift cursor-pointer border border-border">
+                <Card
+                  className="card tilt p-8 hover-lift cursor-pointer border border-border"
+                  data-tilt-strength="8"
+                >
                   <p className="text-muted-foreground italic mb-6 leading-relaxed">
                     "{testimonial.quote}"
                   </p>
@@ -256,7 +279,10 @@ export default function Home() {
               <div className="pointer-events-none absolute -inset-px rounded-3xl bg-gradient-to-r from-accent-gold/80 via-accent-gold/40 to-accent-gold/80 opacity-70 group-hover:opacity-100 blur-lg transition-all duration-slow" />
 
               {/* Main CTA card */}
-              <div className="relative rounded-3xl border border-accent-gold/60 bg-background/95 px-8 py-10 sm:px-12 sm:py-14 shadow-gold transform transition-all duration-medium group-hover:-translate-y-1 group-hover:shadow-lg group-hover:scale-[1.01]">
+              <div
+                className="relative rounded-3xl border border-accent-gold/60 bg-background/95 px-8 py-10 sm:px-12 sm:py-14 shadow-gold transform transition-all duration-medium group-hover:-translate-y-1 group-hover:shadow-lg group-hover:scale-[1.01] card tilt"
+                data-tilt-strength="6"
+              >
                 <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
                   <div className="space-y-4 text-center md:text-left">
                     <h2 className="text-3xl sm:text-4xl font-bold text-ink">
@@ -269,7 +295,12 @@ export default function Home() {
 
                   <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-end">
                     <Button3D variant="primary" size="lg" asChild>
-                      <Link to="/contact">Start Your Project</Link>
+                      <Link
+                        to="/contact"
+                        className="link-reveal inline-flex items-center gap-2"
+                      >
+                        Start Your Project
+                      </Link>
                     </Button3D>
                     <Button3D
                       variant="secondary"
@@ -277,7 +308,12 @@ export default function Home() {
                       className="border-ink/20 text-ink hover:bg-ink hover:text-base-white"
                       asChild
                     >
-                      <Link to="/services">Explore Services</Link>
+                      <Link
+                        to="/services"
+                        className="link-reveal inline-flex items-center gap-1"
+                      >
+                        Explore Services
+                      </Link>
                     </Button3D>
                   </div>
                 </div>

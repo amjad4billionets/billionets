@@ -54,7 +54,7 @@ export default function Contact() {
       <StructuredData type="contact" />
       <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-b from-base-white to-surface">
+      <section className="py-24 bg-gradient-to-b from-base-white to-surface hero-parallax">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6 animate-fade-in">
             Let's Build Something <span className="text-accent-gold">Amazing</span>
@@ -71,7 +71,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Info */}
             <div className="lg:col-span-1 space-y-6">
-              <Card className="p-6 border border-border hover-lift">
+              <Card className="card tilt p-6 border border-border hover-lift" data-tilt-strength="8">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-accent-gold/10 rounded-lg">
                     <MapPin className="h-6 w-6 text-accent-gold" />
@@ -85,7 +85,7 @@ export default function Contact() {
                 </div>
               </Card>
 
-              <Card className="p-6 border border-border hover-lift">
+              <Card className="card tilt p-6 border border-border hover-lift" data-tilt-strength="8">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-accent-gold/10 rounded-lg">
                     <Mail className="h-6 w-6 text-accent-gold" />
@@ -94,7 +94,7 @@ export default function Contact() {
                     <h3 className="font-semibold text-ink mb-1">Email Us</h3>
                     <a
                       href="mailto:info@billionets.com"
-                      className="text-sm text-muted-foreground hover:text-accent-gold transition-colors"
+                      className="text-sm text-muted-foreground hover:text-accent-gold transition-colors link-reveal"
                     >
                       info@billionets.com
                     </a>
@@ -111,7 +111,7 @@ export default function Contact() {
                     <h3 className="font-semibold text-ink mb-1">Call Us</h3>
                     <a
                       href="tel:+971501234567"
-                      className="text-sm text-muted-foreground hover:text-accent-gold transition-colors"
+                      className="text-sm text-muted-foreground hover:text-accent-gold transition-colors link-reveal"
                     >
                       +971 50 123 4567
                     </a>
@@ -261,11 +261,15 @@ export default function Contact() {
               2606, Regal Tower, Business Bay, Dubai, UAE
             </p>
           </div>
-          <div className="aspect-video bg-muted rounded-lg overflow-hidden border border-border shadow-md">
+          <div
+            className="aspect-video bg-muted rounded-lg overflow-hidden border border-border shadow-md reveal-wrap"
+            data-reveal-duration="0.8"
+          >
+            <div className="reveal-overlay" />
             <iframe
               title="Billionets Office Location"
               src="https://www.google.com/maps?q=2606,+Regal+Tower,+Business+Bay,+Dubai,+UAE&output=embed"
-              className="w-full h-full border-0"
+              className="w-full h-full border-0 reveal-img"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />

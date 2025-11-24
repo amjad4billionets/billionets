@@ -71,7 +71,7 @@ export default function Portfolio() {
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-b from-base-white to-surface">
+      <section className="py-24 bg-gradient-to-b from-base-white to-surface hero-parallax">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6 animate-fade-in">
             Our <span className="text-accent-gold">Portfolio</span>
@@ -108,12 +108,19 @@ export default function Portfolio() {
             {filteredProjects.map((project, index) => (
               <Card
                 key={project.title}
-                className={`overflow-hidden border border-border hover-tilt cursor-pointer group bg-gradient-to-br ${project.color}`}
+                className={`card tilt overflow-hidden border border-border cursor-pointer group bg-gradient-to-br ${project.color}`}
+                data-tilt-strength="10"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Project Image Placeholder */}
-                <div className="aspect-video bg-surface/50 flex items-center justify-center border-b border-border">
-                  <ExternalLink className="h-12 w-12 text-accent-gold opacity-50 group-hover:opacity-100 transition-opacity" />
+                <div
+                  className="aspect-video reveal-wrap bg-surface/50 flex items-center justify-center border-b border-border"
+                  data-reveal-duration="0.7"
+                >
+                  <div className="reveal-overlay" />
+                  <div className="reveal-img flex items-center justify-center w-full h-full">
+                    <ExternalLink className="h-12 w-12 text-accent-gold opacity-50 group-hover:opacity-100 transition-opacity" />
+                  </div>
                 </div>
 
                 {/* Project Details */}
@@ -164,7 +171,10 @@ export default function Portfolio() {
             Let's discuss how we can help achieve similar results for your business.
           </p>
           <Button3D variant="primary" size="lg" asChild>
-            <Link to="/contact">
+            <Link
+              to="/contact"
+              className="link-reveal inline-flex items-center gap-2"
+            >
               Start Your Project <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button3D>

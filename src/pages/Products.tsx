@@ -83,7 +83,7 @@ export default function Products() {
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-b from-base-white to-surface">
+      <section className="py-24 bg-gradient-to-b from-base-white to-surface hero-parallax">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6 animate-fade-in">
             AI-Powered <span className="text-accent-gold">Products</span>
@@ -135,24 +135,41 @@ export default function Products() {
 
                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
                     <Button3D variant="primary" asChild>
-                      <Link to="/contact">Request Demo</Link>
+                      <Link
+                        to="/contact"
+                        className="link-reveal inline-flex items-center gap-2"
+                      >
+                        Request Demo
+                      </Link>
                     </Button3D>
                     <Button3D variant="secondary" asChild>
-                      <Link to="/contact">Learn More</Link>
+                      <Link
+                        to="/contact"
+                        className="link-reveal inline-flex items-center gap-2"
+                      >
+                        Learn More
+                      </Link>
                     </Button3D>
                   </div>
                 </div>
 
                 {/* Product Visual */}
                 <Card
-                  className={`p-12 border border-border bg-gradient-to-br ${product.color} ${
+                  className={`card tilt p-12 border border-border bg-gradient-to-br ${product.color} ${
                     index % 2 === 1 ? "lg:order-1" : ""
                   }`}
+                  data-tilt-strength="12"
                 >
                   <div className="aspect-square flex items-center justify-center">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-accent-gold/20 rounded-full blur-3xl animate-float" />
-                      <product.icon className="h-32 w-32 text-accent-gold relative z-10" />
+                    <div
+                      className="relative reveal-wrap"
+                      data-reveal-duration="0.8"
+                    >
+                      <div className="reveal-overlay" />
+                      <div className="reveal-img relative flex items-center justify-center">
+                        <div className="absolute inset-0 bg-accent-gold/20 rounded-full blur-3xl animate-float" />
+                        <product.icon className="h-32 w-32 text-accent-gold relative z-10" />
+                      </div>
                     </div>
                   </div>
                 </Card>
@@ -189,7 +206,11 @@ export default function Products() {
                 description: "Dedicated support team available whenever you need help",
               },
             ].map((benefit) => (
-              <Card key={benefit.title} className="p-6 border border-border text-center">
+              <Card
+                key={benefit.title}
+                className="card tilt p-6 border border-border text-center"
+                data-tilt-strength="8"
+              >
                 <h3 className="text-xl font-bold text-ink mb-3">{benefit.title}</h3>
                 <p className="text-muted-foreground">{benefit.description}</p>
               </Card>
@@ -208,7 +229,10 @@ export default function Products() {
             Schedule a demo and see how our AI products can help you achieve your goals.
           </p>
           <Button3D variant="primary" size="lg" asChild>
-            <Link to="/contact">
+            <Link
+              to="/contact"
+              className="link-reveal inline-flex items-center gap-2"
+            >
               Get Started Today <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button3D>

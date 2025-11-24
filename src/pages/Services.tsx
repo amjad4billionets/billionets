@@ -84,7 +84,7 @@ export default function Services() {
       <StructuredData type="services" />
       <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-b from-base-white to-surface">
+      <section className="py-24 bg-gradient-to-b from-base-white to-surface hero-parallax">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6 animate-fade-in">
             Our <span className="text-accent-gold">Services</span>
@@ -121,11 +121,18 @@ export default function Services() {
             {filteredServices.map((service, index) => (
               <Card
                 key={service.title}
-                className="p-8 hover-lift cursor-pointer border border-border group"
+                className="card tilt p-8 hover-lift cursor-pointer border border-border group"
+                data-tilt-strength="10"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="mb-6 inline-flex p-4 bg-surface rounded-lg group-hover:bg-accent-gold/10 transition-colors duration-base">
-                  <service.icon className="h-8 w-8 text-accent-gold" />
+                <div
+                  className="mb-6 reveal-wrap inline-block rounded-lg"
+                  data-reveal-duration="0.7"
+                >
+                  <div className="reveal-overlay" />
+                  <div className="reveal-img inline-flex p-4 bg-surface rounded-lg group-hover:bg-accent-gold/10 transition-colors duration-base">
+                    <service.icon className="h-8 w-8 text-accent-gold" />
+                  </div>
                 </div>
                 <h3 className="text-xl font-bold text-ink mb-3">{service.title}</h3>
                 <p className="text-muted-foreground leading-relaxed mb-6">
@@ -169,7 +176,8 @@ export default function Services() {
             ].map((phase) => (
               <div
                 key={phase.step}
-                className="flex gap-6 items-start p-6 bg-background border border-border rounded-lg hover-lift cursor-pointer"
+                className="card tilt flex gap-6 items-start p-6 bg-background border border-border rounded-lg hover-lift cursor-pointer"
+                data-tilt-strength="8"
               >
                 <div className="flex-shrink-0 w-16 h-16 bg-accent-gold rounded-lg flex items-center justify-center">
                   <span className="text-2xl font-bold text-ink">{phase.step}</span>
@@ -194,7 +202,10 @@ export default function Services() {
             Let's discuss how our services can help transform your business.
           </p>
           <Button3D variant="primary" size="lg" asChild>
-            <Link to="/contact">
+            <Link
+              to="/contact"
+              className="link-reveal inline-flex items-center gap-2"
+            >
               Contact Us <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button3D>

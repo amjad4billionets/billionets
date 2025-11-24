@@ -44,7 +44,7 @@ export default function About() {
       <StructuredData type="about" />
       <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-b from-base-white to-surface">
+      <section className="py-24 bg-gradient-to-b from-base-white to-surface hero-parallax">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6 animate-fade-in">
             Building the Future of{" "}
@@ -64,11 +64,18 @@ export default function About() {
             {values.map((value, index) => (
               <Card
                 key={value.title}
-                className="p-8 hover-lift cursor-pointer border border-border"
+                className="card tilt p-8 hover-lift cursor-pointer border border-border"
+                data-tilt-strength="10"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="mb-6 inline-flex p-4 bg-surface rounded-lg">
-                  <value.icon className="h-8 w-8 text-accent-gold" />
+                <div
+                  className="mb-6 reveal-wrap inline-block rounded-lg"
+                  data-reveal-duration="0.7"
+                >
+                  <div className="reveal-overlay" />
+                  <div className="reveal-img inline-flex p-4 bg-surface rounded-lg">
+                    <value.icon className="h-8 w-8 text-accent-gold" />
+                  </div>
                 </div>
                 <h3 className="text-xl font-bold text-ink mb-3">{value.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{value.description}</p>
@@ -148,7 +155,7 @@ export default function About() {
                   <div className="text-2xl font-bold text-accent-gold">{event.year}</div>
                 </div>
                 <div className="flex-grow">
-                  <div className="p-6 bg-background border border-border rounded-lg hover-lift cursor-pointer">
+                  <div className="card tilt p-6 bg-background border border-border rounded-lg hover-lift cursor-pointer" data-tilt-strength="8">
                     <h3 className="text-xl font-bold text-ink mb-2">{event.title}</h3>
                     <p className="text-muted-foreground">{event.description}</p>
                   </div>
@@ -170,7 +177,11 @@ export default function About() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {["Developers", "Designers", "AI Specialists", "Project Managers"].map((role) => (
-              <Card key={role} className="p-6 border border-border hover-lift cursor-pointer">
+              <Card
+                key={role}
+                className="card tilt p-6 border border-border hover-lift cursor-pointer"
+                data-tilt-strength="10"
+              >
                 <div className="w-16 h-16 bg-accent-gold/10 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <Users className="h-8 w-8 text-accent-gold" />
                 </div>

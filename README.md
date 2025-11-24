@@ -1,73 +1,40 @@
-# Welcome to your Lovable project
+# Billionets Marketing Website
 
-## Project info
+Production-ready marketing site for **Billionets**, an AI-first digital studio in Dubai. Built with React, TypeScript, Vite, Tailwind CSS, and shadcn-ui.
 
-**URL**: https://lovable.dev/projects/78e617f5-7056-4960-9069-e948de1241b7
+## Getting Started
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/78e617f5-7056-4960-9069-e948de1241b7) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will start on `http://localhost:8080` (configured via Vite).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Tech Stack
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
+- React + TypeScript
 - Vite
-- TypeScript
-- React
-- shadcn-ui
 - Tailwind CSS
+- shadcn-ui
+- React Router
 
-## How can I deploy this project?
+## Visual & Motion System
 
-Simply open [Lovable](https://lovable.dev/projects/78e617f5-7056-4960-9069-e948de1241b7) and click on Share -> Publish.
+Global CSS and the footer script provide the following interaction primitives:
 
-## Can I connect a custom domain to my Lovable project?
+- **Card Tilt**: `.card.tilt` with `data-tilt-strength` (desktop pointer-based)
+- **Reveal Mask**: `.reveal-wrap`, `.reveal-img`, `.reveal-overlay` (scroll-based image sweep)
+- **Link Reveal**: `.link-reveal` underline animation on hover/focus
+- **Hero Parallax**: `.hero-parallax` with pointer parallax on desktop and scroll-based parallax on mobile
+- **Cursor Follower**: `.cursor-dot` custom cursor on desktop
 
-Yes, you can!
+All effects respect `prefers-reduced-motion` and degrade on touch devices for performance and accessibility.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Scripts
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- `npm run dev` – start local dev server
+- `npm run build` – production build
+- `npm run preview` – preview production build
+- `npm run lint` – run ESLint
+
