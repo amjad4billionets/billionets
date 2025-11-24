@@ -56,12 +56,14 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-b from-base-white to-surface hero-parallax">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6 animate-fade-in">
-            Let's Build Something <span className="text-accent-gold">Amazing</span>
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed animate-slide-up">
-            Ready to transform your business with AI-powered solutions? Get in touch with our team today.
-          </p>
+          <AnimatedSection direction="blur">
+            <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6">
+              Let's Build Something <span className="text-accent-gold">Amazing</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Ready to transform your business with AI-powered solutions? Get in touch with our team today.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 

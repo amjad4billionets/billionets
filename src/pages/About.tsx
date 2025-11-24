@@ -1,6 +1,7 @@
 import { Target, Eye, Users, Award, Zap, Shield } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { StructuredData } from "@/components/StructuredData";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const values = [
   {
@@ -46,14 +47,16 @@ export default function About() {
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-b from-base-white to-surface hero-parallax">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6 animate-fade-in">
-            Building the Future of{" "}
-            <span className="text-accent-gold">Digital Innovation</span>
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed animate-slide-up">
-            Billionets is an AI-first digital agency based in Dubai, dedicated to helping modern businesses 
-            scale through intelligent automation and high-performance digital solutions.
-          </p>
+          <AnimatedSection direction="blur">
+            <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6">
+              Building the Future of{" "}
+              <span className="text-accent-gold">Digital Innovation</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Billionets is an AI-first digital agency based in Dubai, dedicated to helping modern businesses 
+              scale through intelligent automation and high-performance digital solutions.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -88,8 +91,10 @@ export default function About() {
       {/* Our Story */}
       <section className="py-24 bg-surface">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-ink mb-8 text-center">Our Story</h2>
-          <div className="prose prose-lg max-w-none">
+          <AnimatedSection direction="up" className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-ink">Our Story</h2>
+          </AnimatedSection>
+          <AnimatedSection direction="up" className="prose prose-lg max-w-none">
             <p className="text-muted-foreground leading-relaxed mb-6">
               Founded in 2016 in the heart of Dubai, Billionets emerged from a simple yet powerful vision: 
               to help businesses harness the power of artificial intelligence and modern technology to achieve 
@@ -105,7 +110,7 @@ export default function About() {
               Today, we're proud to be recognized as one of the region's premier AI-first agencies, combining 
               cutting-edge technology with deep business understanding to deliver solutions that truly make a difference.
             </p>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 

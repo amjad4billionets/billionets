@@ -4,6 +4,7 @@ import { Button3D } from "@/components/ui/button-3d";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 type ProjectCategory = "All" | "Web" | "Mobile" | "AI" | "Branding";
 
@@ -73,13 +74,15 @@ export default function Portfolio() {
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-b from-base-white to-surface hero-parallax">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6 animate-fade-in">
-            Our <span className="text-accent-gold">Portfolio</span>
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed animate-slide-up">
-            Explore our successful projects and see how we've helped businesses across the UAE 
-            achieve their digital transformation goals.
-          </p>
+          <AnimatedSection direction="blur">
+            <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6">
+              Our <span className="text-accent-gold">Portfolio</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Explore our successful projects and see how we've helped businesses across the UAE 
+              achieve their digital transformation goals.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 

@@ -7,6 +7,7 @@ import {
 import { Button3D } from "@/components/ui/button-3d";
 import { Card } from "@/components/ui/card";
 import { StructuredData } from "@/components/StructuredData";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 type ServiceCategory = "All" | "Design" | "Development" | "AI" | "Marketing";
 
@@ -86,13 +87,15 @@ export default function Services() {
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-b from-base-white to-surface hero-parallax">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6 animate-fade-in">
-            Our <span className="text-accent-gold">Services</span>
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed animate-slide-up">
-            Comprehensive digital solutions tailored to your business needs. From AI-powered automation 
-            to cutting-edge web development, we've got you covered.
-          </p>
+          <AnimatedSection direction="blur">
+            <h1 className="text-4xl sm:text-5xl font-bold text-ink mb-6">
+              Our <span className="text-accent-gold">Services</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Comprehensive digital solutions tailored to your business needs. From AI-powered automation 
+              to cutting-edge web development, we've got you covered.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
