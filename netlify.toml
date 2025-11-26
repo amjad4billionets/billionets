@@ -9,3 +9,8 @@
   command = "npm run dev"
   port = 8888        # URL you open in the browser (http://localhost:8888)
   targetPort = 8080  # Vite dev server port from vite.config.ts
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
